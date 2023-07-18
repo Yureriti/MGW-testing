@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "terraa";
+    src: url("BankGothicMediumBT.ttf");
+}
+
+/* @font-face {
+    font-family: "terraa-blue";
+    src: url("BankGothicMediumBT.ttf");
+    color: #23aae1;
+}
+@font-face {
+    font-family: "terraa-gray";
+    src: url("BankGothicMediumBT.ttf");
+    color: #818285;
+} */
+
+.terraa-blue {
+    font-family: "terraa";
+    color: #23aae1;
+}
+
+.terraa-gray {
+    font-family: "terraa";
+    color: #818285;
+}
+
+/* #wrapper-table th,
+td {
+    /* border: 1px solid black; * /
+    /* border: 1px solid #b4b4b4; * /
+    align-items: center;
+    text-align: center;
+} */
+.wrapper-table-cell {
+    align-items: center;
+    text-align: center;
+    min-width: 50px !important; /*: caused table-wide issues ?*/
+    max-width: 50px !important; /*: caused table-wide issues ?*/
+}
+#wrapper-table {
+    /* border: 0.5px solid #b4b4b4; */
+    /* border: 0.5px solid rgb(191, 191, 191, 0.5); */
+    height: fit-content;
+    width: fit-content;
+}
+
+
+
+body {
+    font-family: "Lucida Sans Unicode" !important;
+    /*Carter One", cursive !important;*/
+    color: #172852 !important;
+    margin: 0px;
+    
+    /*30px 50px;*/
+}
+
+
+
+
+.custom-nav-bar-brand {
+    white-space: nowrap;
+    font-size: 1.5em;
+}
+
+.logo {
+    width: 10vw;
+    margin-left: 15%;
+    margin-right: 5%;
+}
+
+
+/* .navbar.what-the-fuck {
+    background-color: #ffffff !important; 
+    height: 150px;
+    font-size: large;
+}
+
+.navbar.what-the-fuck .nav-link {
+    color: #313131 !important; 
+} */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 0rem;
+  }

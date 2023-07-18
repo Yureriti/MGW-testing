@@ -1,0 +1,106 @@
+{% extends "base.html" %} {% block title %} Test Action Table {% endblock %}
+{%block head %} {{ super() }}
+<!-- prettier-ignore -->
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/control_room.css') }}"
+/>
+{% endblock %} {% block content %} {{ super() }}
+
+<div class="row main">
+    <div class="action-table-wrapper">
+        <div id="actions">
+            <table
+                id="action-table"
+                class="table table-responsive table-hover table-sm table-bordered table-striped"
+            >
+                <!-- <tr>
+                <th></th>
+                <th></th>
+                <th id="t0">t0</th>
+                <th id="t1">t1</th>
+                <th>+</th>
+            </tr>
+            <tr>
+                <th>id</th>
+                <th>img</th>
+                <td>NOOP</td>
+                <td>NOOP</td>
+            </tr> -->
+            </table>
+        </div>
+    </div>
+</div>
+
+<button id="add-item" class="btn btn-success">add item</button>
+
+<script>
+    let tableHtml = $("#action-table");
+
+    let actions = [{ 1: [1, 2] }, { 2: [3, 4, 5] }, { 4: [4, 5, 6, 7] }];
+
+    function getMaxLen(actions) {
+        /** Calculate the maximum length of current actions
+         *
+         * @param {Array.<Object>.<int, Array.<int>>} actions - list of actions for each asset
+         */
+        return Math.max(
+            ...actions.map(function (obj) {
+                return Object.values(obj)[0].length;
+            })
+        );
+    }
+
+    let maxLen = getMaxLen(actions);
+
+    function pushListener(targetAssetID, newLen, args) {
+        /** Listen for changes to each of the asset's action arrays
+         *
+         * @param {int} targetAssetID - ID of Asset who's action is being appended to
+         * @param {int} newLen - length of the Asset's action array after args were pushed
+         * @param {Array} args - args being pushed into the Asset's action array
+         */
+        let idxOfNew = newLen - 1;
+        let curTD = $("#asset-row-" + targetAssetID).find("#t-" + idxOfNew);
+        let newVal = args[0];
+
+        if (curTD.length == 0) {
+            $("tr[id^='asset-row-']").each(function (assetIdx, assetRow) {
+                let newCell = $("<td id='t-" + idxOfNew + "'></td>");
+                let [_1, _2, assetID] = $(assetRow).attr("id").split("-");
+                newCell.text(assetID == targetAssetID ? newVal : "");
+                $(assetRow).append(newCell);
+            });
+        } else if (curTD.length == 1) {
+            $(curTD[0]).text(newVal);
+        } else {
+            // should never get here
+            console.log("Error appending actions");
+        }
+    }
+
+    $.each(actions, function (idx, rows) {
+        let newRow = $("<tr>");
+        $.each(rows, function (assetID, cols) {
+            newRow.attr("id", "asset-row-" + assetID);
+            $.each(Array(maxLen), function (colID) {
+                let val = colID < cols.length ? cols[colID] : "";
+                newRow.append($("<td id='t-" + colID + "'>").text(val));
+            });
+            cols.push = function () {
+                let newLen = Array.prototype.push.apply(this, arguments);
+                pushListener(assetID, newLen, arguments);
+            };
+        });
+        tableHtml.append(newRow);
+    });
+
+    $("#add-item").on("click", function () {
+        console.log("pushing");
+        let actionIdx_ = 1;
+        let actionAssetIdx_ = 2;
+        actions[actionIdx_][actionAssetIdx_].push(-1);
+    });
+</script>
+
+{% endblock %}

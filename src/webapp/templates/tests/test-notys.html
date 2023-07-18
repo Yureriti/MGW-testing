@@ -1,0 +1,139 @@
+{% extends "base.html" %} {% block title %} Test Notifications {% endblock %}
+{%block head %} {{ super() }}
+<!-- prettier-ignore -->
+
+{% endblock %} {% block content %} {{ super() }}
+
+<div>
+    <div>
+        <button id="test-btn" class="btn btn-success">Click Me</button>
+    </div>
+    <div id="test-alert-1"></div>
+    <br />
+    <div id="test-alert-2"></div>
+    <br />
+    <div id="liveAlertPlaceholder"></div>
+    <button type="button" class="btn btn-primary" id="liveAlertBtn">
+        Show live alert
+    </button>
+    <br />
+    <div id="notyPlaceholder"></div>
+    <button type="button" class="btn btn-primary" id="notyBtn">
+        Show live noty
+    </button>
+</div>
+
+<script>
+    function makeAlert(evt) {
+        // Alert container
+        let cont1 = $("#test-alert-1");
+        let cont2 = $("#test-alert-2");
+
+        let closeBtn = $("<button>", {
+            type: "button",
+            class: "btn-close",
+            "data-dismiss": "alert",
+            "aria-label": "Close",
+        });
+
+        let t = $("<span>", {
+            text: "Primary alert with custom close button 3",
+            html: ["Primary alert with custom close button 3", closeBtn],
+        });
+
+        cont1.html(`<div class="alert alert-primary alert-dismissible fade show" role="alert">
+      Primary alert with custom close button
+      <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+      </div>`);
+
+        cont2.html(
+            $("<div>", {
+                class: "alert alert-primary alert-dismissible fade show",
+                role: "alert",
+                text: "Primary alert with custom close button 2",
+                html: t,
+            })
+        );
+    }
+
+    var i = 0;
+    var j = 0;
+
+    /** ALERTS **/
+    const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+    const appendAlert = (message, type) => {
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button id="dismiss-alerts" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            "</div>",
+        ].join("");
+
+        alertPlaceholder.append(wrapper);
+    };
+    const alertTrigger = document.getElementById("liveAlertBtn");
+    if (alertTrigger) {
+        alertTrigger.addEventListener("click", () => {
+            appendAlert(
+                "Nice, you triggered this alert message! " + i,
+                "success"
+            );
+            let alert = setTimeout(function () {
+                console.log("clicking after 3");
+                $("#dismiss-alerts").click();
+            }, 3000);
+            $("#dismiss-alerts").on("click", function () {
+                console.log("on click");
+                clearTimeout(alert);
+            });
+            i += 1;
+        });
+    }
+
+    /** NOTY **/
+    function notify(mssg, type, notyId = "notyPlaceholder") {
+        const noty = $("<div>", {
+            html: $("<div>", {
+                class: `alert alert-${type} alert-dismissible`,
+                role: "alert",
+                html: [
+                    $("<div>", { html: mssg }),
+                    $("<button>", {
+                        id: "dismiss-alert",
+                        type: "button",
+                        class: "btn-close",
+                        "data-bs-dismiss": "alert",
+                        "aria-label": "Close",
+                    }),
+                ],
+            }),
+        });
+
+        $(`#${notyId}`).append(noty);
+        let alert = setTimeout(function () {
+            console.log("clicking after 3");
+            $("#dismiss-alert").click();
+        }, 3000);
+    }
+
+    $("#notyBtn").on("click", () => {
+        notify("Nice, you triggered this alert message! " + j, "danger");
+        let alert = setTimeout(function () {
+            console.log("clicking after 3");
+            $("#dismiss-alerts-2").click();
+        }, 3000);
+        // $("#dismiss-alerts-2").on("click", function () {
+        //     console.log("on click");
+        //     clearTimeout(alert);
+        // });
+        j += 1;
+    });
+
+    let button = $("#test-btn");
+    button.on("click", function (evt) {
+        makeAlert(evt);
+    });
+</script>
+
+{% endblock %}

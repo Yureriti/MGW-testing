@@ -1,0 +1,136 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% block title %} 
+    Cartographer 
+{% endblock %}
+
+
+{% block head %} 
+
+{{ super() }}
+<!-- prettier-ignore-end -->
+
+<script src="https://unpkg.com/konva@8.3.13/konva.min.js"></script>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/cartographer.css') }}"
+/>
+<script
+    type="module"
+    src="{{  url_for('static', filename='js/cartographer.js') }}"
+></script>
+
+<!-- prettier-ignore -->
+{% endblock %} 
+{% block content %} 
+{{ super() }}
+<!-- prettier-ignore-end -->
+
+<div class="row">
+    <div id="scene_config">
+        <!-- { % block scene-config % } -->
+        {% include 'cartographer/config.html' %}
+        <!-- { % endblock % } -->
+    </div>
+</div>
+<div class="row">
+    <div id="scene-render">
+        <aside class="asset-palette palette-hidden">
+            <h4>Select Asset</h4>
+            <!-- <div class="asset-selected" selected> -->
+            <div class="asset-selector-wrapper" selectedasset="true">
+                <img
+                    src="./static/images/assets/cover.png"
+                    alt="Cover"
+                    class="asset-selector"
+                    data-asset-type="cover"
+                    title="Cover"
+                />
+            </div>
+            <div class="asset-selector-wrapper">
+                <img
+                    src="./static/images/assets/ally.png"
+                    alt="Ally"
+                    class="asset-selector"
+                    data-asset-type="ally"
+                    title="Ally"
+                />
+            </div>
+            <div class="asset-selector-wrapper">
+                <img
+                    src="./static/images/assets/goal.png"
+                    alt="Goal"
+                    class="asset-selector"
+                    data-asset-type="goal"
+                    title="Goal"
+                />
+            </div>
+            <div class="asset-selector-wrapper">
+                <img
+                    src="./static/images/assets/hostile.png"
+                    alt="Hostile"
+                    class="asset-selector"
+                    data-asset-type="hostile"
+                    title="Hostile"
+                />
+            </div>
+        </aside>
+        <table id="wrapper-table"></table>
+    </div>
+</div>
+<script>
+    print = console.log;
+    function numberRange(end, start = 0) {
+        return new Array(end - start).fill().map((_, i) => i + start);
+    }
+    function getInner(colRange, rowRange) {
+        return [
+            $("<tr>", {
+                html: [
+                    $("<th>", { text: "" }),
+                    ...colRange.map(function (cval) {
+                        return $("<th>", { text: cval });
+                    }),
+                ],
+            }),
+            ...rowRange.map(function (rval, idx) {
+                if (rval == 0) {
+                    return $("<tr>", {
+                        html: [
+                            $("<th>", { text: rval }),
+                            $("<td>", {
+                                colspan: colRange.length,
+                                rowspan: rowRange.length,
+                                html: $("<div>", { id: "scene" }),
+                            }),
+                        ],
+                    });
+                } else {
+                    return $("<tr>", {
+                        html: $("<th>", { text: rval }),
+                    });
+                }
+            }),
+        ];
+    }
+    $("#canvas-update").on("click", function () {
+        let x = parseInt($("#canvas-cols").val());
+        let y = parseInt($("#canvas-rows").val());
+        let colRange = numberRange(x);
+        let rowRange = numberRange(y);
+
+        let table = $("#wrapper-table");
+
+        let inner = getInner(colRange, rowRange);
+        let tbody = $("<tbody>").append(inner);
+        print(tbody);
+        table.html(tbody);
+    });
+</script>
+<!-- <script
+    type="module"
+    src="{{  url_for('static', filename='js/cartographer.js') }}"
+></script> -->
+
+{% endblock %}

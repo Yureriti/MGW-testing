@@ -1,0 +1,49 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var print = console.log;
+    class A {
+        x;
+        constructor(y) {
+            this.x = "x" + y;
+            this.y = y;
+        }
+        z(...kwargs) {
+            return {};
+        }
+    }
+    class B extends A {
+        xx;
+
+        constructor(yy) {
+            super(yy);
+            this.xx = "xx" + yy;
+            this.yy = yy;
+            this.aa = 58;
+        }
+        z(kwargs) {
+            if (kwargs === undefined || kwargs === null) {
+                // return {xx: this.xx, yy: this.yy}
+                return {
+                    x: this.x,
+                    y: this.y,
+                    xx: this.xx,
+                    yy: this.yy,
+                    aa: this.aa,
+                };
+            }
+            // print(this.x, this.y, "|", this.xx, this.yy, this.aa, "|", kwargs);
+            Object.assign(this, kwargs);
+            // print(this.x, this.y, "|", this.xx, this.yy, this.aa, "|", kwargs);
+        }
+    }
+
+    let b = new B(3);
+    let s = {
+        xx: "44xx",
+        yy: `YESx2`,
+    };
+    print(b.z());
+    b.z(s);
+    print("=========");
+    print(b.z());
+</script>

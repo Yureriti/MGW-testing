@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: mg-web
+Version: 0.0.0
+Summary: TERRRAA Maneuver Game Web App
+Home-page: https://github.com/MITLL-TERRAA/ManeuverGameWeb
+Author: TARKIN Team
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7, <3.11
+Provides-Extra: all
+
+UNKNOWN
+

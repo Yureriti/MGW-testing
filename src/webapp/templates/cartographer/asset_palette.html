@@ -1,0 +1,42 @@
+{% block asset_palette %}
+<aside class="asset-palette ">
+    
+    <!-- <div class="asset-selected" selected> -->
+    <div class="asset-selector-wrapper" selectedasset="true">
+        <img
+            src="./static/images/assets/cover.png"
+            alt="Cover"
+            class="asset-selector"
+            data-asset-type="cover"
+            title="Cover"
+        />
+    </div>
+    <div class="asset-selector-wrapper">
+        <img
+            src="./static/images/assets/ally.png"
+            alt="Ally"
+            class="asset-selector"
+            data-asset-type="ally"
+            title="Ally"
+        />
+    </div>
+    <div class="asset-selector-wrapper">
+        <img
+            src="./static/images/assets/goal.png"
+            alt="Goal"
+            class="asset-selector"
+            data-asset-type="goal"
+            title="Goal"
+        />
+    </div>
+    <div class="asset-selector-wrapper">
+        <img
+            src="./static/images/assets/hostile.png"
+            alt="Hostile"
+            class="asset-selector"
+            data-asset-type="hostile"
+            title="Hostile"
+        />
+    </div>
+</aside>
+{% endblock %}

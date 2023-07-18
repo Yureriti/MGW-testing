@@ -1,0 +1,278 @@
+/* for cartographer */
+#scene {
+    /* width: 10em;
+    height: 10em;
+    padding: 0em */
+    /* width: 100%; */
+    width: 50em;
+    height: 30em;
+    
+    /* margin: 0em 2em; */
+    /* border: 1px solid #595959; */
+    display: block;
+}
+
+.asset-selector {
+    width: 100px;
+    height: 100px;
+    /* margin:  */
+    padding: 0.5rem;
+    
+}
+.asset-selector-wrapper[selectedasset="true"] {
+    border: 0.5rem solid rgb(216, 216, 216);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+#context-menu {
+    display: none;
+    position: absolute;
+    width: 60px;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+}
+#context-menu button {
+    border-radius: 0rem !important;
+}
+.asset-palette {
+    display: flex !important;
+    flex-direction: row;
+    padding: 10px 10px;
+    /* border: 0.5px solid #b4b4b4; */
+    justify-content: space-between;
+    align-items:baseline;
+    text-align: center;
+    width: 300px; /* modify as required */
+    height: 300px; /* modify as required */
+    min-width: 300px; /* modify as required */
+    min-height: 300px; /* modify as required */
+}
+
+/* .palette-hidden {
+    display: none !important;
+} */
+aside {
+    width: 250px;
+}
+.palette-cover-shape {
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border: solid 2px #b4b4b4;
+    background-color: #b4b4b4;
+}
+.palette-goal-shape {
+    margin: 10px;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 100px solid #aaffb0;
+}
+.palette-ally-shape {
+    margin: 10px;
+    height: 100px;
+    border: solid 2px #80dfff;
+    background-color: #80dfff;
+    width: 100px;
+    border-radius: 50%;
+}
+.palette-hostile-shape {
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-bottom-color: #ff0000;
+    position: relative;
+    top: -50px;
+}
+.palette-hostile-shape:after {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-top-color: #ff0000;
+}
+#scene-render {
+    padding: 4em 27em;
+    /* height: 15em; */
+    
+    
+    justify-content: center;
+    display: flex;
+    /* border: 10px solid #595959;*/
+}
+#scene_border {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    border: 2px solid purple;
+}
+
+.config {
+    /* justify-content: center;
+        text-align: center; */
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+.scene-config-row {
+    text-align: center;
+    
+}
+
+.custom-config-section-break-line {
+    margin: 0.5rem 0 !important;
+}
+
+.custom-config-section-title {
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    
+    
+}
+
+.custom-file-form-control {
+    font-size: 0.75em;
+    font-weight: 550;
+    
+    width: 16em;
+    
+}
+
+.custom-config-btn {
+    width: 100%;
+    
+}
+
+.custom-form-control {
+    display: inline;
+    width: 15em;
+    padding: 0.375rem 0.375rem;
+    font-size: 0.75em;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.col-sm.custom-col-form-section {
+    padding: 0.25em;
+}
+
+.form-check.custom-form-check {
+    margin-top: 1.5em;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* input[type="file"] {
+    color: transparent !important;
+} */
+
+/* input[type="file"]::after {
+    content: "No scene file uploaded";
+    color: gray;
+    padding-right: 120px;
+} */
+
+.test {
+    /* color: pink; */
+    padding: 1em;
+    width: 20em;
+    height: 15em;
+}
+
+.config-dropdown {
+    height: 2em;
+}
+
+.table-config {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.table-data-name {
+    width: 50%;
+}
+
+.dropdown-last-config {
+    height: 75%;
+}
+
+.config-dropdown-color-border {
+    border: 1px solid #dbdada;
+}
+
+.config-dropdown-input {
+    width: 40%;
+    text-align: center;
+    
+    border: 1px solid #dbdada;
+    color: #212529;
+    background-color: #fff;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    /* background-clip: padding-box; */
+    /* font-size: 0.75em; */
+    /* font-weight: 400; */
+    /* line-height: 1.5; */
+}
+
+/* 
+.table-config tr {
+    margin: 4em;
+    height: 50%;
+}
+*/
+
+.flex-container {
+    position: fixed; /* this makes the div stick to the left side */
+    padding: 3%;
+    left: 0; /* this makes the div start from the left */
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.rest {
+    margin-top: 590px;
+}
+
+.rest-of-the-content {
+    margin-top: 380px;
+}
+
+.info{
+    height: 30px;
+    width: 30px;
+    bottom: 0;
+    padding: 2px;
+    margin: 10px;
+    margin-left: 250px;
+}
+

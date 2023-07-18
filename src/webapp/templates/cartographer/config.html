@@ -1,0 +1,267 @@
+{% block config %}
+
+
+
+<div class="fixed-bottom bg-white p-3" style="max-width: auto; border: 1px solid #d9d9d9; border-radius: 10px; margin: 1rem; margin-left: 18rem">
+    <div class="container">
+        <div class="row config">
+        <div class="col-lg-3" >
+            {% include 'cartographer/asset_palette.html' %}    
+        </div>
+        <div class="col-lg-3">
+        <!-- grid/canvas parameters -->
+        <h4 class="custom-config-section-title">Canvas</h4>
+        <hr class="custom-config-section-break-line" />
+        <div class="row g-3">
+            <div class="col-sm custom-col-form-section">
+                <div class="form-outline">
+                    <input
+                        type="number"
+                        id="canvas-cols"
+                        value="8"
+                        step="1"
+                        class="custom-form-control"
+                        min="1"
+                        max="100"
+                    />
+                    <label class="form-label" for="canvas-cols">Columns</label>
+                </div>
+            </div>
+            <div class="col-sm custom-col-form-section">
+                <div class="form-outline">
+                    <input
+                        type="number"
+                        id="canvas-rows"
+                        value="5"
+                        step="1"
+                        class="custom-form-control"
+                        min="1"
+                        max="100"
+                    />
+                    <label class="form-label" for="canvas-rows">Rows</label>
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-sm custom-col-form-section">
+                <div class="form-outline">
+                    <input
+                        type="number"
+                        id="canvas-cell-size"
+                        placeholder="100"
+                        class="custom-form-control"
+                        min="1"
+                        max="100"
+                        value="100"
+                    />
+                    <label class="form-label" for="canvas-cell-size"
+                        >Cell Size</label
+                    >
+                </div>
+            </div>
+            <!-- <div class="col-sm custom-col-form-section">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="lock-grid-size" checked>
+                    <label class="form-check-label" for="lock-grid-size">
+                        Lock Grid Ratio
+                    </label>
+                </div>
+            </div> -->
+        </div>
+        <div class="row g-3">
+            <div class="col custom-col-form-section">
+                <span
+                    id="canvas-update"
+                    class="btn btn-sm btn-success custom-config-btn"
+                    >Update</span
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+        <!-- scene parameters -->
+        <h4 class="custom-config-section-title">Scene</h4>
+        <hr class="custom-config-section-break-line" />
+        <div class="row g-3">
+            <div class="col-sm">
+                <div class="mb-3">
+                    <form id="target">
+                        <input
+                            class="form-control custom-file-form-control"
+                            type="file"
+                            id="scene-upload"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="btn-group">
+                <button
+                    id="autogenerate-scene"
+                    type="button"
+                    class="btn btn-light config-dropdown-color-border"
+                >
+                    Autogenerate Scene
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-light dropdown-toggle dropdown-toggle-split config-dropdown-color-border"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+
+                <ul class="dropdown-menu test">
+                    <li>
+                        <h5 class="dropdown-header">Scene Parameters</h5>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li class="dropdown-last-config">
+                        <table id="auto-scene-config" class="table-config">
+                            <tr>
+                                <td class="table-data-name">Allies</td>
+                                <td class="text-end">
+                                    <span>
+                                        <button
+                                            id="minus-allies"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-minus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                        <input
+                                            id="allies-count"
+                                            type="number"
+                                            class="count config-dropdown-input"
+                                            value="1"
+                                            placeholder="1"
+                                            min="1"
+                                            max="10"
+                                        />
+                                        <button
+                                            id="add-allies"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-plus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-data-name">Goals</td>
+                                <td class="text-end">
+                                    <span>
+                                        <button
+                                            id="minus-goals"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-minus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                        <input
+                                            id="goals-count"
+                                            type="number"
+                                            class="count config-dropdown-input"
+                                            value="1"
+                                            placeholder="1"
+                                            min="1"
+                                            max="10"
+                                        />
+                                        <button
+                                            id="add-goals"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-plus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-data-name">Cover Objects</td>
+                                <td class="text-end">
+                                    <span>
+                                        <button
+                                            id="minus-covers"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-minus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                        <input
+                                            id="covers-count"
+                                            type="number"
+                                            class="count config-dropdown-input"
+                                            value="1"
+                                            placeholder="1"
+                                            min="1"
+                                            max="10"
+                                        />
+                                        <button
+                                            id="add-covers"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-plus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-data-name">Hostiles</td>
+
+                                <td class="text-end">
+                                    <span>
+                                        <button
+                                            id="minus-hostiles"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-minus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                        <input
+                                            id="hostiles-count"
+                                            type="number"
+                                            class="count config-dropdown-input"
+                                            value="1"
+                                            placeholder="1"
+                                            min="1"
+                                            max="10"
+                                        />
+                                        <button
+                                            id="add-hostiles"
+                                            class="btn btn-sm btn-light config-dropdown-color-border fa fa-plus"
+                                            data-keepOpenOnClick
+                                        ></button>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+
+        <!-- config params -->
+        <h4 class="custom-config-section-title">Config</h4>
+        <hr class="custom-config-section-break-line" />
+        <div class="row g-3 scene-config-row">
+            <div class="col custom-col-form-section">
+                <span
+                    id="canvas-save"
+                    class="btn btn-sm btn-primary custom-config-btn"
+                    >Save</span
+                >
+            </div>
+            <div class="col custom-col-form-section">
+                <span
+                    id="canvas-clear"
+                    class="btn btn-sm btn-danger custom-config-btn"
+                    >Clear</span
+                >
+            </div>
+        </div>
+    </div>
+    <hr
+        class="custom-config-section-break-line"
+        style="margin-top: 2em important"
+    />
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% block config %}
+
+<div class="row config">
+    <div class="col col-5">
+        <!-- scene parameters -->
+        <h4 class="custom-config-section-title">Scene</h4>
+        <hr class="custom-config-section-break-line" />
+        <div class="row g-3">
+            <div class="col-sm">
+                <div class="mb-3">
+                    <form id="target">
+                        <input
+                            class="form-control custom-file-form-control"
+                            type="file"
+                            id="scene-upload"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col-5">
+        <!-- scene parameters -->
+        <h4 class="custom-config-section-title">Actions</h4>
+        <hr class="custom-config-section-break-line" />
+        <div class="row g-3">
+            <div class="col-sm">
+                <div class="mb-3">
+                    <form id="target">
+                        <input
+                            class="form-control custom-file-form-control"
+                            type="file"
+                            id="actions-upload"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col-2">
+        <!-- config params -->
+        <h4 class="custom-config-section-title">Config</h4>
+        <hr class="custom-config-section-break-line" />
+        <div class="row g-3 scene-config-row">
+            <div class="col custom-col-form-section">
+                <span
+                    id="canvas-save"
+                    class="btn btn-sm btn-primary custom-config-btn"
+                    >Save</span
+                >
+            </div>
+            <div class="col custom-col-form-section">
+                <span
+                    id="canvas-clear"
+                    class="btn btn-sm btn-danger custom-config-btn"
+                    >Clear</span
+                >
+            </div>
+        </div>
+    </div>
+    <hr
+        class="custom-config-section-break-line"
+        style="margin-top: 2em important"
+    />
+</div>
+
+{% endblock %}

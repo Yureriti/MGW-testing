@@ -1,0 +1,90 @@
+{% extends "base.html" %} 
+{% block title %} 
+    Cartographer 
+{% endblock %}
+
+{% block head %} 
+
+{{ super() }}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/tut-styles.css') }}"
+/>
+
+<script src="https://unpkg.com/konva@8.3.13/konva.min.js"></script>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/generic.css') }}"
+/>
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/cartographer.css') }}"
+/>
+
+<style>
+    #canvas_container {
+        /* position: fixed; */
+        right: 0;
+        top: 0;
+        max-width: 100%;  /* adjust as needed */
+        background-color: white;
+        border: 1px solid #d9d9d9;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 18rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %} 
+{{ super() }}
+
+<!-- Wrap the canvas section in a div with id 'canvas_container' -->
+<div id="canvas_container">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="scene_config">
+                {% include 'cartographer/config.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="scene-render">
+                <table id="wrapper-table"></table>
+                <div id="context-menu">
+                    <button id="canvas-delete-button" class="btn btn-sm btn-secondary">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tut_content" class="tut-special">
+    {% include 'tut.html' %}
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+<script
+    type="module"
+    src="{{  url_for('static', filename='js/cartographer.js') }}"
+></script>
+
+<script
+    type="module"
+    src="{{ url_for('static', filename='js/tut-script.js') }}"
+></script>
+
+{% endblock %}

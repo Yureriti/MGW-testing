@@ -1,0 +1,12 @@
+README.md
+setup.py
+src/mg_web.egg-info/PKG-INFO
+src/mg_web.egg-info/SOURCES.txt
+src/mg_web.egg-info/dependency_links.txt
+src/mg_web.egg-info/requires.txt
+src/mg_web.egg-info/top_level.txt
+src/mgw/__init__.py
+src/mgw/mg_cartographer/__init__.py
+src/mgw/mg_cartographer/scenes.py
+src/webapp/__init__.py
+src/webapp/server.py

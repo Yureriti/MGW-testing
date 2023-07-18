@@ -1,0 +1,85 @@
+<!-- prettier-ignore -->
+{% extends "base.html" %} 
+{% block title %} 
+    Control Room 
+{% endblock %}
+
+
+{% block head %} 
+
+{{ super() }}
+
+<!-- prettier-ignore-end -->
+
+<script src="https://unpkg.com/konva@8.3.13/konva.min.js"></script>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/control_room.css') }}"
+/>
+
+<!-- NOTE: split/refactor JS code? -->
+<script
+    type="module"
+    src="{{  url_for('static', filename='js/control_room.js') }}"
+></script>
+
+<!-- prettier-ignore -->
+{% endblock %} 
+{% block content %}
+{{ super() }}
+<!-- prettier-ignore-end -->
+
+<div class="row main">
+    <div class="row">
+        <div id="scene_config">
+            <!-- { % block scene-config % } -->
+            {% include 'control_room/config.html' %}
+            <!-- { % endblock % } -->
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <div class="row"> -->
+        <div class="col-7 panel-bordered-right panel-bordered-bottom">
+            <div id="scene-render">
+                <table id="wrapper-table" style="display: block"></table>
+            </div>
+            <div id="notyPlaceholder"></div>
+        </div>
+        <!-- TODO: move buttons to own .html -->
+        <div class="col-5 panel-bordered-left panel-bordered-bottom">
+            <div class="row" style="height: 100% !important">
+                {% include 'control_room/asset_controls.html' %}
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+    <div class="row" style="height: 10em">
+        <!-- <div class="row" style="height: 10em"> -->
+        <div class="col-7 panel-bordered-top panel-bordered-right">
+            <div class="row" style="height: 100%">
+                {% include 'control_room/media_controls.html' %}
+            </div>
+        </div>
+        <div class="col-5 panel-bordered-top panel-bordered-left">
+            <div class="row" style="height: 100%">
+                {% include 'control_room/demo_controls.html' %}
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+    <div class="row">{% include 'control_room/action_table.html' %}</div>
+
+    {% endblock %}
+
+    <!-- prettier-ignore -->
+    {% block footer %}
+    <!-- prettier-ignore-end -->
+
+    {% endblock %}
+</div>
+<!-- <script
+    type="module"
+    src="{{  url_for('static', filename='js/control_room.js') }}"
+></script> -->

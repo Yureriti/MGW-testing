@@ -1,0 +1,201 @@
+{
+    "assets": {
+        "allies": [
+            {
+                "0": {
+                    "timesteps": 1,
+                    "goalsReached": [
+                        0
+                    ],
+                    "timeOutOfCover": [
+                        1
+                    ],
+                    "distToAllies": [
+                        {
+                            "1": {
+                                "block": 4,
+                                "euclid": "4.000"
+                            }
+                        }
+                    ],
+                    "distToHostiles": [
+                        {
+                            "0": {
+                                "block": 10,
+                                "euclid": "7.211"
+                            }
+                        },
+                        {
+                            "1": {
+                                "block": 9,
+                                "euclid": "6.403"
+                            }
+                        }
+                    ],
+                    "distToGoals": [
+                        {
+                            "0": {
+                                "block": 8,
+                                "euclid": "6.325"
+                            }
+                        }
+                    ],
+                    "states": [
+                        {
+                            "inCoverMode": false,
+                            "isDetected": true,
+                            "atGoal": false,
+                            "goalState": {
+                                "atGoal": false,
+                                "goalUid": null
+                            },
+                            "loc": [
+                                1,
+                                7
+                            ],
+                            "action": 5
+                        }
+                    ]
+                }
+            },
+            {
+                "1": {
+                    "timesteps": 3,
+                    "goalsReached": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "timeOutOfCover": [
+                        1,
+                        2,
+                        3
+                    ],
+                    "distToAllies": [
+                        {
+                            "0": {
+                                "block": 4,
+                                "euclid": "4.000"
+                            }
+                        },
+                        {
+                            "0": {
+                                "block": 5,
+                                "euclid": "4.123"
+                            }
+                        },
+                        {
+                            "0": {
+                                "block": 4,
+                                "euclid": "3.162"
+                            }
+                        }
+                    ],
+                    "distToHostiles": [
+                        {
+                            "0": {
+                                "block": 6,
+                                "euclid": "6.000"
+                            }
+                        },
+                        {
+                            "1": {
+                                "block": 5,
+                                "euclid": "4.123"
+                            }
+                        },
+                        {
+                            "0": {
+                                "block": 7,
+                                "euclid": "7.000"
+                            }
+                        },
+                        {
+                            "1": {
+                                "block": 6,
+                                "euclid": "5.099"
+                            }
+                        },
+                        {
+                            "0": {
+                                "block": 8,
+                                "euclid": "7.071"
+                            }
+                        },
+                        {
+                            "1": {
+                                "block": 7,
+                                "euclid": "5.385"
+                            }
+                        }
+                    ],
+                    "distToGoals": [
+                        {
+                            "0": {
+                                "block": 8,
+                                "euclid": "6.325"
+                            }
+                        },
+                        {
+                            "0": {
+                                "block": 9,
+                                "euclid": "7.280"
+                            }
+                        },
+                        {
+                            "0": {
+                                "block": 8,
+                                "euclid": "7.071"
+                            }
+                        }
+                    ],
+                    "states": [
+                        {
+                            "inCoverMode": false,
+                            "isDetected": true,
+                            "atGoal": false,
+                            "goalState": {
+                                "atGoal": false,
+                                "goalUid": null
+                            },
+                            "loc": [
+                                5,
+                                7
+                            ],
+                            "action": 5
+                        },
+                        {
+                            "inCoverMode": false,
+                            "isDetected": true,
+                            "atGoal": false,
+                            "goalState": {
+                                "atGoal": false,
+                                "goalUid": null
+                            },
+                            "loc": [
+                                5,
+                                8
+                            ],
+                            "action": 6
+                        },
+                        {
+                            "inCoverMode": false,
+                            "isDetected": true,
+                            "atGoal": false,
+                            "goalState": {
+                                "atGoal": false,
+                                "goalUid": null
+                            },
+                            "loc": [
+                                4,
+                                8
+                            ],
+                            "action": 8
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "label": 1
+}

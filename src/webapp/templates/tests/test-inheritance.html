@@ -1,0 +1,10 @@
+<script>
+    let rows = 5;
+    let cols = 8;
+    let _grid = new Array(rows)
+        .fill(null)
+        .map(() =>
+            new Array(cols).fill(null).map(() => new Array(1).fill(["empty"]))
+        );
+    console.log(_grid);
+</script>

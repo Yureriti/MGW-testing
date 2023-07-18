@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+
+
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+        <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap"
+        />
+
+
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <!-- <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+            integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script> -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/generic.css') }}"
+        />
+        <!-- icon list: https://fontawesome.com/v4/icons/ -->
+        <title>{% block title %}{% endblock %}</title>
+        {% endblock %}
+    </head>
+
+
+
+
+    <body>
+        <div class="screen-default-sidebar">
+            <div class="sidebar">
+              <div class="cont">
+                <div class="header">
+                <a class="custom-nav-bar-brand navbar-brand" href="/">
+                    <img src="./static/images/logos/terraa-logo.png" class="nav-logo" alt="" />
+                </a>
+                  <img
+                    class="align-justify-icon"
+                    src="../static/images/navbar/more.png"
+                  />
+                </div>
+              
+                <div class="menu-group">
+                  <div class="menu-items">
+                    <img
+                      class="house-door-icon"
+                      alt=""
+                      src="../static/images/navbar/home.png" />
+
+                    <div class="home1">Home</div>
+                  </div>
+
+                  <div class="menu-items">
+                    <img class="map-icon" alt="" src="../static/images/navbar/map.png" />
+                    <ul class="home1">
+                        <li><a href="cartographer">Cartographer</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="menu-items">
+                    <img class="house-door-icon" alt="" src="../static/images/navbar/console.png"/>
+                    <ul class="home1">
+                        <li><a href="control-room">Control Room</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="menu-items">
+                    <img class="search-icon" alt="" src="../static/images/navbar/check.png" />
+                    <div class="home1">Validation</div>
+                  </div>
+        
+                </div>
+              </div>
+              <div class="container">
+                <div class="menu-group1">
+                  <div class="menu-items6">
+                    <img class="search-icon" alt="" src="../static/images/navbar/setting.png" />
+                    <div class="home1">Settings</div>
+                  </div>
+                </div>
+                <div class="profile-widget">
+                  <div class="profile">
+                    <div class="avatar">
+                        <img
+                            class="avatar"
+                            alt=""
+                            src="../static/images/navbar/kermit-frog-exhausted.png"
+                        />
+                        <div class="status1"></div>
+                    </div>
+                    <div class="text-cont">
+                      <div class="search">lol_help_plz</div>
+                      <div class="gmail">omg@gmail.com</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-items7">
+                <img class="icon-folder-2" alt="" src="../static/images/navbar/folder.png" />
+      
+                <div class="saved-scenes">Saved Scenes</div>
+                <img
+                  class="icon-arrow-right-1"
+                  alt=""
+                  src="./public/-icon-arrow-right-1.svg"
+                />
+              </div>
+            </div>
+            <div class="screen-default-sidebar-child"></div>
+            <div class="screen-default-sidebar-item"></div>
+          </div>
+
+
+
+
+
+
+
+
+          
+        <!-- <nav class="navbar navbar-expand what-the-fuck">
+            <div class="container-fluid">
+                <a class="custom-nav-bar-brand navbar-brand" href="/">
+                    <img src="./static/images/logos/terraa-logo.png" class="logo" alt="" />
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="cartographer">Cartographer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="control-room">Control Room</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plan-synthesis">Plan Synthesis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="execution">Execution</a></li>
+                </ul>
+            </div>
+        </nav> -->
+        
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+    <footer>{% block footer %}{% endblock %}</footer>
+</html>
